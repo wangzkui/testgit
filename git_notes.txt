@@ -1,3 +1,7 @@
+安装完成后，还需要最后一步设置，在命令行输入：
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
 1、创建版本库
 	1.1 初始化一个Git仓库：
 	1.1.1 选择一个合适的地方，创建一个空目录
