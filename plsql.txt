@@ -1,0 +1,51 @@
+
+CREATE TABLE T_SSQ(
+ cp_no varchar2(50)
+)
+;
+
+DECLARE
+
+  --CNT INTEGER := 0;
+  --红球组合 c33/6=33*32*31*30*29*28/6*5*4*3*2*1=1107568
+  --有16个篮球所以乘16
+  --所以一共组合数即1107568*16=17721088种组合！
+
+BEGIN
+
+  FOR IP1 IN 1 .. 28 LOOP
+    --IP1
+  
+    FOR IP2 IN IP1 + 1 .. 29 LOOP
+      --IP2
+    
+      FOR IP3 IN IP2 + 1 .. 30 LOOP
+        --IP3
+      
+        FOR IP4 IN IP3 + 1 .. 31 LOOP
+          --IP4
+        
+          FOR IP5 IN IP4 + 1 .. 32 LOOP
+            --IP5
+          
+            FOR IP6 IN IP5 + 1 .. 33 LOOP
+              --IP6
+             insert into t_ssq NOLOGGING
+                values
+                  (IP1||','||IP2||','||IP3||','||IP4||','||IP5||','||IP6);
+            
+            END LOOP; --IP6
+          
+          END LOOP; --IP5
+        
+        END LOOP; --IP4
+        commit;
+      END LOOP; --IP3
+      commit;
+    END LOOP; --IP2
+    commit;
+  END LOOP; --IP1
+  commit;
+  --dbms_output.put_line(TO_CHAR(CNT));
+
+END;
